@@ -1,3 +1,13 @@
 <?php
-echo "seller dashboard";
+session_start();
 ?>
+
+<h2>Seller Dashboard</h2>
+
+<a href="add_product.php">
+    <button> Add New product</button>
+</a>
+
+<a href="manage_product.php">
+    <button>Manage Products</button>
+</a>
