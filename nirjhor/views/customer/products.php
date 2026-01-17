@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once '../../controllers/productController.php';
-
-//$products = getApprovedProducts();
+require_once "../../models/productModel.php";
+$products = getApprovedProducts();
 ?>
 
 <!doctype html>
@@ -45,3 +45,15 @@ require_once '../../controllers/productController.php';
         }
         ?>
     </div>
+    <div class="products">
+        <?php foreach ($products as $p): ?>
+          <div style="border:1px solid #000; width:200px; padding:10px; margin:10px; display:inline-block;">
+            <img src="<?= $p['image'] ?>" width="150"><br>
+            <b><?= $p['name'] ?></b><br>
+            Price:<?= $p['price'] ?><br>
+          </div>
+    <?php endforeach; ?>
+    </div>
+</body>
+</html>
+
