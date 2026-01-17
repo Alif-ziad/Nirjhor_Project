@@ -8,12 +8,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $passErr;
         $id=$_POST["id"];
         $pass=$_POST["password"];
- if(empty($userId) && empty($pass))
+ if(empty($id) || empty($pass))
     {
         $hasErr=true;
         $idErr="user Id cannot be empty";
         $passErr="password cannot be empty";
         header("Location: ../views/auth/login.php?idErr=".$idErr."&passErr=".$passErr);
+        exit();
 
     }
 
@@ -28,6 +29,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 $_SESSION['id']=$user['id'];
                 $_SESSION['role']=$user['role'];
                 header("Location: ../views/customer/products.php");
+                exit();
                 }
 
                 if($user['role']=="seller")
@@ -35,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 $_SESSION['id']=$user['id'];
                 $_SESSION['role']=$user['role'];
                 header("Location: ../views/customer/products.php");
+                exit();
                 }
 
                 if($user['role']=="customer")
@@ -42,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 $_SESSION['id']=$user['id'];
                 $_SESSION['role']=$user['role'];
                 header("Location: ../views/customer/products.php");
+                exit();
                 }
             }
              else

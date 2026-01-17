@@ -39,7 +39,7 @@ require_once '../../controllers/productController.php';
                 echo '<a href="../admin/dashboard.php"><button>dashboard</button> </a>';
             }
 
-            echo '<a href="../auth/login.php">
+            echo '<a href="../auth/logout.php">
                     <button>Logout</button>
                   </a>';
         }
