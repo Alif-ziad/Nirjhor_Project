@@ -53,6 +53,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                     header("Location: ../views/auth/login.php?genErr=id or password didn't match");
                     exit();
                 }
+    
 
     }
 
