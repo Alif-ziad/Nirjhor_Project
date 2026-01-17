@@ -4,7 +4,7 @@ require_once("../models/productModel.php");
 
 if(isset($_POST['addProduct']))
     {
-        if(isset['role'] != 'seller')
+        if($_SESSION['role'] != 'seller')
             {
                 header("Location: ../views/auth/login.php");
                 exit();
@@ -25,7 +25,7 @@ if(isset($_POST['addProduct']))
         exit();
     }
 
-    if(isset($_POST('updateProduct')))
+    if(isset($_POST['updateProduct']))
         {
             updateProduct(
                 $_POST['product_id'],
