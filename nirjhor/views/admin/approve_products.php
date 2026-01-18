@@ -32,3 +32,6 @@ $products = getPendingProducts();
 </tr>
 <?php endforeach; ?>
 </table>
+<a href="dashboard.php">
+    <button type="button">Return to Dashboard</button>
+</a>

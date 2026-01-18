@@ -18,10 +18,6 @@ function dbConnect()
         {
             echo "not connected";
         }
-    else{
-            echo "connected";
-            return $conn;
-        }
+    return $conn;
 }
-dbConnect();
 ?>

@@ -8,6 +8,9 @@ session_start();
     <button> Add New product</button>
 </a>
 
-<a href="manage_product.php">
+<a href="manage_products.php">
     <button>Manage Products</button>
+</a>
+<a href="../auth/logout.php">
+    <button>Logout</button>
 </a>

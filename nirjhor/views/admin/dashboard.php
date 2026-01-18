@@ -11,3 +11,6 @@ session_start();
 <a href="manage_users.php">
     <button>Manage Users</button>
 </a>
+<a href="../auth/logout.php">
+    <button>Logout</button>
+</a>

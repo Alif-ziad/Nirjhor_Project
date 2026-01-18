@@ -1,6 +1,10 @@
 <?php
+
+if(session_status() === PHP_SESSION_NONE)
+    {
 session_start();
-require_once("../models/productModel.php");
+    }
+require_once(__DIR__ . "/../models/productModel.php");
 
 if(isset($_POST['addProduct']))
     {
