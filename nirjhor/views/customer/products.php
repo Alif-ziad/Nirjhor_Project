@@ -51,6 +51,9 @@ $products = getApprovedProducts();
             <img src="<?= $p['image'] ?>" width="150"><br>
             <b><?= $p['name'] ?></b><br>
             Price:<?= $p['price'] ?><br>
+            <a href="../../controllers/cartController.php?add=<?= $product['id'] ?>">
+    Add to Cart
+</a>
           </div>
     <?php endforeach; ?>
     </div>
