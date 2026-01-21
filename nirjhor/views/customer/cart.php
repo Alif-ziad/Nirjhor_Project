@@ -59,6 +59,8 @@ $total = 0;
         <td>
             <a href="cart.php?remove=<?= $id ?>">Remove</a>
         </td>
+        <td><?= htmlspecialchars($item['name']) ?></td>
+
     </tr>
     <?php endforeach; ?>
 

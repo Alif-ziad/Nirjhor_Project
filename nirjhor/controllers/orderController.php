@@ -9,13 +9,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'customer') {
 
 if (isset($_POST['place_order'])) {
 
-    $address = trim($_POST['address']);
-    $customer_id = $_SESSION['id'];
-
     if (empty($_SESSION['cart'])) {
         header("Location: ../views/customer/cart.php");
         exit();
     }
+
+    $address = trim($_POST['address']);
+    $customer_id = $_SESSION['id'];
 
     $total = 0;
     foreach ($_SESSION['cart'] as $item) {

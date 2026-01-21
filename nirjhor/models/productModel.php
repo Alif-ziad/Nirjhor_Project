@@ -53,4 +53,12 @@ function deleteProduct($product_id)
     $conn = dbConnect();
     return mysqli_query($conn, "DELETE FROM products WHERE product_id='$product_id'");
 }
+
+function getProductById($id)
+{
+    $conn = dbConnect();
+    $res = mysqli_query($conn, "SELECT * FROM products WHERE product_id='$id'");
+    return mysqli_fetch_assoc($res);
+}
+
 ?>

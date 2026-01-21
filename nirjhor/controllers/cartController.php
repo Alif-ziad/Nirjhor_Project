@@ -14,26 +14,17 @@ if (!isset($_SESSION['cart'])) {
 if (isset($_GET['add'])) {
 
     $productId = $_GET['add'];
-    $products = getApprovedProducts();
-    $product = null;
 
-    // Find the selected product
-    foreach ($products as $p) {
-        if ($p['id'] == $productId) {
-            $product = $p;
-            break;
-        }
-    }
+    // ✅ FIX: fetch product directly
+    $product = getProductById($productId);
 
-    // If product not found
     if (!$product) {
         header("Location: ../views/customer/products.php");
         exit();
     }
 
-    // Add to cart
     if (isset($_SESSION['cart'][$productId])) {
-        $_SESSION['cart'][$productId]['quantity'] += 1;
+        $_SESSION['cart'][$productId]['quantity']++;
     } else {
         $_SESSION['cart'][$productId] = [
             'name' => $product['name'],
