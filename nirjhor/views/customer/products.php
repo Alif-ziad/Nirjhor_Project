@@ -47,14 +47,13 @@ $products = getApprovedProducts();
 
 <div class="products">
 <?php foreach ($products as $p): ?>
-    <div style="border:1px solid #000; width:200px; padding:10px; margin:10px; display:inline-block;">
+    <div class="product-card">
 
-        <?php
-        $image = !empty($p['image']) ? $p['image'] : 'default.png';
-        ?>
+       <?php
+$image = !empty($p['image']) ? $p['image'] : 'default.png';
+?>
 
-        <img src="../../assets/images/<?= htmlspecialchars($image) ?>" width="150"><br>
-        <img src="../../assets/images/laptop.jpg" alt="laptop">
+<img src="../../assets/images/<?= htmlspecialchars($image) ?>" width="150"><br>
 
         <b><?= htmlspecialchars($p['name']) ?></b><br>
         Price: <?= $p['price'] ?> Tk<br><br>

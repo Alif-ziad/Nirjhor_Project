@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2026 at 02:13 PM
+-- Generation Time: Jan 21, 2026 at 04:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,13 +40,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `address`, `total_amount`, `created_at`) VALUES
-(1, 1, 'here', 72.00, '2026-01-21 10:09:31'),
-(2, 1, 'there', 10.00, '2026-01-21 10:16:01'),
-(3, 0, 'here', 611.00, '2026-01-21 12:09:51'),
-(4, 0, 'here', 11.00, '2026-01-21 12:25:15'),
-(5, 0, 'ogi', 611.00, '2026-01-21 12:26:08'),
-(6, 1, 'toji', 761.00, '2026-01-21 12:56:12'),
-(7, 9, 'uttara,Dhaka', 611.00, '2026-01-21 12:59:55');
+(8, 1, 'home', 800.00, '2026-01-21 15:05:36');
 
 -- --------------------------------------------------------
 
@@ -67,18 +61,7 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_name`, `price`, `quantity`) VALUES
-(1, 1, 'dana', 11.00, 2),
-(2, 1, 'longcoat', 50.00, 1),
-(3, 2, '###', 10.00, 1),
-(4, 3, 'dana', 11.00, 1),
-(5, 3, 'carpet', 600.00, 1),
-(6, 4, 'dana', 11.00, 1),
-(7, 5, 'dana', 11.00, 1),
-(8, 5, 'carpet', 600.00, 1),
-(9, 6, 'mandala', 750.00, 1),
-(10, 6, 'dana', 11.00, 1),
-(11, 7, 'carpet', 600.00, 1),
-(12, 7, 'dana', 11.00, 1);
+(13, 8, 'tablerunner', 800.00, 1);
 
 -- --------------------------------------------------------
 
@@ -102,11 +85,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `price`, `description`, `seller_id`, `image`, `status`, `is_approved`) VALUES
-(16, 'dana', 11.00, 'sads', 6, '../assets/images/1768990048_anime-cyberpunk-24-09-2024-1727169479-hd-wallpaper (2).jpg', 'approved', 0),
-(17, 'carpet', 600.00, 'carpet', 3, '../assets/images/1768995100_588492106_122177474462463724_5587239768727540950_n.jpg', 'approved', 0),
-(22, 'mandala', 750.00, 'gkrdjhfgsdryufghsdui', 8, '../assets/images/1769000084_529377098_122164510082463724_4849606914220736832_n.jpg', 'approved', 0),
-(24, 'table runnersets', 200.00, 'xfvgdfg', 8, '../assets/images/1769000965_534589221_122165551658463724_1209664715243495406_n.jpg', 'approved', 0),
-(25, 'floormat', 600.00, 'sdfderg', 8, '../assets/images/1769000992_557597393_122171551970463724_5104079946562486132_n.jpg', 'approved', 0);
+(26, 'tablerunner', 800.00, 'rtert', 8, '1769005648_558165426_122171551784463724_3140025047568713329_n.jpg', 'approved', 0),
+(27, 'Jute rugs', 400.00, 'traditional jute rug', 8, '1769006319_555740378_122170805960463724_2217594395217886426_n.jpg', 'approved', 0),
+(28, 'carpet', 1200.00, 'traditional carpet', 8, '1769006364_589070627_122177474576463724_5043223610391721652_n.jpg', 'approved', 0),
+(29, 'table mat', 1500.00, 'handcrafted table mat', 8, '1769006417_558836388_122172172226463724_7956558289952279520_n.jpg', 'approved', 0),
+(30, 'mandala', 600.00, 'traditional Mandala set', 8, '1769006448_529313938_122164510040463724_5271495211534406848_n.jpg', 'approved', 0),
+(31, 'table runnersets', 2100.00, 'handcrafted Table Runnerset', 3, '1769007021_515506665_122167090166463724_1379565295378265500_n.jpg', 'approved', 0),
+(32, 'floormat', 900.00, 'handcrafted floormat', 3, '1769007055_557246474_122171551742463724_5225823396527785662_n.jpg', 'approved', 0);
 
 -- --------------------------------------------------------
 
@@ -178,19 +163,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`

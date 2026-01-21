@@ -22,7 +22,7 @@ $products = getSellerProducts($_SESSION['id']);
 
 <?php foreach ($products as $p): ?>
 <tr>
-    <td><img src="<?= $p['image'] ?>" width="80"></td>
+    <td><img src="../../assets/images/<?= htmlspecialchars($image) ?>" width="150"></td>
     <td><?= $p['name'] ?></td>
     <td><?= $p['price'] ?></td>
     <td><?= $p['status'] ?></td>

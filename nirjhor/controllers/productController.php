@@ -19,12 +19,14 @@ if(isset($_POST['addProduct']))
         $desc= $_POST['description'];
         $sellerId=$_SESSION['id'];
 
-        $imgName = $_FILES['image']['name'];
-        $tmpName = $_FILES['image']['tmp_name'];
-        $imgPath = "../assets/images/".time()."_".$imgName;
-        move_uploaded_file($tmpName, $imgPath);
+        $imgName = time() . "_" . $_FILES['image']['name'];
+$tmpName = $_FILES['image']['tmp_name'];
 
-        addProduct($name, $price, $desc, $sellerId, $imgPath);
+// REAL filesystem path
+move_uploaded_file($tmpName, __DIR__ . "/../assets/images/" . $imgName);
+
+// Save ONLY filename
+addProduct($name, $price, $desc, $sellerId, $imgName);
         header("Location: ../views/seller/dashboard.php");
         exit();
     }
