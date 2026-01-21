@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2026 at 11:10 AM
+-- Generation Time: Jan 21, 2026 at 02:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,7 +40,13 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `address`, `total_amount`, `created_at`) VALUES
-(1, 1, 'here', 72.00, '2026-01-21 10:09:31');
+(1, 1, 'here', 72.00, '2026-01-21 10:09:31'),
+(2, 1, 'there', 10.00, '2026-01-21 10:16:01'),
+(3, 0, 'here', 611.00, '2026-01-21 12:09:51'),
+(4, 0, 'here', 11.00, '2026-01-21 12:25:15'),
+(5, 0, 'ogi', 611.00, '2026-01-21 12:26:08'),
+(6, 1, 'toji', 761.00, '2026-01-21 12:56:12'),
+(7, 9, 'uttara,Dhaka', 611.00, '2026-01-21 12:59:55');
 
 -- --------------------------------------------------------
 
@@ -62,7 +68,17 @@ CREATE TABLE `order_items` (
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_name`, `price`, `quantity`) VALUES
 (1, 1, 'dana', 11.00, 2),
-(2, 1, 'longcoat', 50.00, 1);
+(2, 1, 'longcoat', 50.00, 1),
+(3, 2, '###', 10.00, 1),
+(4, 3, 'dana', 11.00, 1),
+(5, 3, 'carpet', 600.00, 1),
+(6, 4, 'dana', 11.00, 1),
+(7, 5, 'dana', 11.00, 1),
+(8, 5, 'carpet', 600.00, 1),
+(9, 6, 'mandala', 750.00, 1),
+(10, 6, 'dana', 11.00, 1),
+(11, 7, 'carpet', 600.00, 1),
+(12, 7, 'dana', 11.00, 1);
 
 -- --------------------------------------------------------
 
@@ -86,9 +102,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `price`, `description`, `seller_id`, `image`, `status`, `is_approved`) VALUES
-(13, 'longcoat', 50.00, 'dfgdftg', 3, '../assets/images/1768734440_Screenshot (409).png', 'approved', 0),
-(14, '###', 10.00, 'cfsdrfgrs', 3, '../assets/images/1768734760_Screenshot (153).png', 'approved', 0),
-(16, 'dana', 11.00, 'sads', 6, '../assets/images/1768990048_anime-cyberpunk-24-09-2024-1727169479-hd-wallpaper (2).jpg', 'approved', 0);
+(16, 'dana', 11.00, 'sads', 6, '../assets/images/1768990048_anime-cyberpunk-24-09-2024-1727169479-hd-wallpaper (2).jpg', 'approved', 0),
+(17, 'carpet', 600.00, 'carpet', 3, '../assets/images/1768995100_588492106_122177474462463724_5587239768727540950_n.jpg', 'approved', 0),
+(22, 'mandala', 750.00, 'gkrdjhfgsdryufghsdui', 8, '../assets/images/1769000084_529377098_122164510082463724_4849606914220736832_n.jpg', 'approved', 0),
+(24, 'table runnersets', 200.00, 'xfvgdfg', 8, '../assets/images/1769000965_534589221_122165551658463724_1209664715243495406_n.jpg', 'approved', 0),
+(25, 'floormat', 600.00, 'sdfderg', 8, '../assets/images/1769000992_557597393_122171551970463724_5104079946562486132_n.jpg', 'approved', 0);
 
 -- --------------------------------------------------------
 
@@ -117,7 +135,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `status`, `shop_
 (2, 'nezo', 'nezo1999@gmail.com', 'nezo', 'admin', 'approved', NULL, NULL, 1),
 (3, 'fumi', 'fumi2000@gmail.com', 'fumi', 'seller', 'approved', NULL, NULL, 1),
 (4, 'minho', 'minho@gmail.com', '1234', 'customer', 'pending', '', '', 1),
-(6, 'tamashi', 'tamashi@gmail.com', '1234', 'seller', 'approved', 'fgbgfb', 'fgbgfb', 1);
+(6, 'tamashi', 'tamashi@gmail.com', '1234', 'seller', 'approved', 'fgbgfb', 'fgbgfb', 1),
+(7, 'ogi', 'ogi@gmail.com', '1234', 'customer', 'pending', '', '', 1),
+(8, 'ben', 'ben@gmail.com', '1234', 'seller', 'approved', 'fwefwer', 'sdfvsrfgs', 1),
+(9, 'junayed', 'junyedahad47@gmail.com', '12345678', 'customer', 'pending', '', '', 1),
+(11, 'Ahad', 'go123@gmail.com', '654321', 'seller', 'approved', 'Nirjhor', 'House-3, Road-5/A, Ranavola, PO-Nishatnogor, Turag', 1);
 
 --
 -- Indexes for dumped tables
@@ -156,25 +178,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
