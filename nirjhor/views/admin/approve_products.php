@@ -50,7 +50,9 @@ $products = getPendingProducts();
 
 <?php foreach ($products as $p): ?>
 <tr>
-    <td><img src="<?= $p['image'] ?>" width="80"></td>
+    <td>
+    <img src="../../assets/images/<?= htmlspecialchars($p['image']) ?>" width="80">
+</td>
     <td><?= $p['name'] ?></td>
     <td><?= $p['price'] ?></td>
     <td><?= $p['seller_id'] ?></td>
