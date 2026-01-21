@@ -33,15 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     /* ================= LOGIN ================= */
     if (isset($_POST['submit'])) {
 
-        $id   = trim($_POST['id'] ?? "");
+        $email  = trim($_POST['email'] ?? "");
         $pass = trim($_POST['password'] ?? "");
 
-        if (empty($id) || empty($pass)) {
+        if (empty($email) || empty($pass)) {
             header("Location: ../views/auth/login.php?genErr=Fields cannot be empty");
             exit();
         }
 
-        $user = authUser($id, $pass);
+        $user = authUser($email, $pass);
 
         if ($user === "NOT_APPROVED") {
             header("Location: ../views/auth/login.php?genErr=Seller not approved yet");
@@ -52,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: ../views/auth/login.php?genErr=Invalid ID or password");
             exit();
         }
-
-        $_SESSION['id']   = $user['id'];
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['email']   = $user['email'];
         $_SESSION['role'] = $user['role'];
 
         if ($user['role'] === 'admin') {

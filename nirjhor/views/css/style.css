@@ -1,0 +1,7 @@
+.product-img {
+    width: 220px;       /* fixed width */
+    height: 180px;      /* fixed height */
+    object-fit: cover;  /* crop image */
+    border-radius: 8px;
+    display: block;
+}

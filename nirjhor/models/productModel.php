@@ -4,7 +4,10 @@ require_once("dbConnect.php");
 function addProduct($name, $price, $desc, $sellerId, $image)
 {
     $conn = dbConnect();
-    $query = "INSERT INTO products(product_id,name, price,description, seller_id, image, status) VALUES(NULL, '$name', '$price', '$desc', '$sellerId', '$image', 'pending')";
+    $query = "
+        INSERT INTO products (name, price, description, seller_id, image, status)
+        VALUES ('$name', '$price', '$desc', '$sellerId', '$image', 'pending')
+    ";
     return mysqli_query($conn, $query);
 }
 

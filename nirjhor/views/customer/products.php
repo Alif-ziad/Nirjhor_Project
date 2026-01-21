@@ -16,7 +16,7 @@ $products = getApprovedProducts();
 <h2>Nirjhor</h2>
 
 <div class="nav">
-<?php if (!isset($_SESSION['id'])) { ?>
+<?php if (!isset($_SESSION['email'])) { ?>
 
     <form action="../auth/login.php" method="get">
         <button type="submit">Login</button>
@@ -48,11 +48,17 @@ $products = getApprovedProducts();
 <div class="products">
 <?php foreach ($products as $p): ?>
     <div style="border:1px solid #000; width:200px; padding:10px; margin:10px; display:inline-block;">
-        <img src="<?= $p['image'] ?>" width="150"><br>
-        <b><?= $p['name'] ?></b><br>
+
+        <?php
+        $image = !empty($p['image']) ? $p['image'] : 'default.png';
+        ?>
+
+        <img src="../../assets/images/<?= htmlspecialchars($image) ?>" width="150"><br>
+        <img src="../../assets/images/laptop.jpg" alt="laptop">
+
+        <b><?= htmlspecialchars($p['name']) ?></b><br>
         Price: <?= $p['price'] ?> Tk<br><br>
 
-        <!-- ✅ FIX: product_id -->
         <a href="../../controllers/cartController.php?add=<?= $p['product_id'] ?>">
             Add to Cart
         </a>

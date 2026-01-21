@@ -24,11 +24,11 @@ function registerUser($name, $email, $password, $role, $shop_name = null, $shop_
 /* =========================
    LOGIN
    ========================= */
-function authUser($id, $pass)
+function authUser($email, $pass)
 {
     $conn = dbConnect();
 
-    $query = "SELECT * FROM users WHERE id='$id' AND password='$pass'";
+    $query = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
     $data = mysqli_query($conn, $query);
 
     if ($data && mysqli_num_rows($data) === 1) {
