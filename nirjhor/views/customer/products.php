@@ -12,38 +12,39 @@ $products = getApprovedProducts();
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-section">
+                <a href="products.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">NIRJHOR</span>
+                </a>
+            </div>
 
-<h2>Nirjhor</h2>
-
-<div class="nav">
+  <div class="header-buttons">
 <?php if (!isset($_SESSION['email'])) { ?>
-
-    <form action="../auth/login.php" method="get">
-        <button type="submit">Login</button>
-    </form>
-
-    <form action="../auth/register.php" method="get">
-        <button type="submit">Sign Up</button>
-    </form>
-
+<a href="../auth/login.php" class="btn-header btn-login">Login</a>
+<a href="../auth/register.php" class="btn-header btn-signup">Sign Up</a>
 <?php } else { ?>
 
     <?php if ($_SESSION['role'] === 'customer') { ?>
-        <a href="cart.php"><button>Cart</button></a>
+        <a href="cart.php" class="btn-header btn-login">Cart</a>
     <?php } ?>
 
     <?php if ($_SESSION['role'] === 'seller') { ?>
-        <a href="../seller/dashboard.php"><button>Dashboard</button></a>
+        <a href="../seller/dashboard.php" class="btn-header btn-login">Dashboard</a>
     <?php } ?>
 
     <?php if ($_SESSION['role'] === 'admin') { ?>
-        <a href="../admin/dashboard.php"><button>Dashboard</button></a>
+        <a href="../admin/dashboard.php" class="btn-header btn-login">Dashboard</a>
     <?php } ?>
 
-    <a href="../auth/logout.php"><button>Logout</button></a>
+    <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
 
 <?php } ?>
 </div>
+</div>
+</header>
 
 <div class="products">
 <?php foreach ($products as $p): ?>
@@ -67,3 +68,4 @@ $image = !empty($p['image']) ? $p['image'] : 'default.png';
 
 </body>
 </html>
+<?php include __DIR__ . '/../layout/footer.php'; ?>

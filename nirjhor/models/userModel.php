@@ -1,14 +1,10 @@
 <?php
 require_once("dbConnect.php");
 
-/* =========================
-   REGISTRATION
-   ========================= */
 function registerUser($name, $email, $password, $role, $shop_name = null, $shop_address = null)
 {
     $conn = dbConnect();
 
-    // sellers need admin approval, others don't
     $is_approved = ($role === 'seller') ? 0 : 1;
 
     $query = "
@@ -21,9 +17,6 @@ function registerUser($name, $email, $password, $role, $shop_name = null, $shop_
     return mysqli_query($conn, $query);
 }
 
-/* =========================
-   LOGIN
-   ========================= */
 function authUser($email, $pass)
 {
     $conn = dbConnect();
@@ -34,7 +27,6 @@ function authUser($email, $pass)
     if ($data && mysqli_num_rows($data) === 1) {
         $user = mysqli_fetch_assoc($data);
 
-        // block seller if not approved
         if ($user['role'] === 'seller' && $user['is_approved'] == 0) {
             return "NOT_APPROVED";
         }
@@ -45,9 +37,6 @@ function authUser($email, $pass)
     return false;
 }
 
-/* =========================
-   ADMIN — USER MANAGEMENT
-   ========================= */
 function getAllSellers()
 {
     $conn = dbConnect();

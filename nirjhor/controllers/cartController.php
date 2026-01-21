@@ -15,7 +15,6 @@ if (isset($_GET['add'])) {
 
     $productId = $_GET['add'];
 
-    // ✅ FIX: fetch product directly
     $product = getProductById($productId);
 
     if (!$product) {

@@ -22,10 +22,8 @@ if(isset($_POST['addProduct']))
         $imgName = time() . "_" . $_FILES['image']['name'];
 $tmpName = $_FILES['image']['tmp_name'];
 
-// REAL filesystem path
 move_uploaded_file($tmpName, __DIR__ . "/../assets/images/" . $imgName);
 
-// Save ONLY filename
 addProduct($name, $price, $desc, $sellerId, $imgName);
         header("Location: ../views/seller/dashboard.php");
         exit();

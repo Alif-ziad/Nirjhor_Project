@@ -2,7 +2,6 @@
 session_start();
 require_once("../models/userModel.php");
 
-/* ================= ADMIN ACTIONS (GET) ================= */
 if (isset($_GET['approveSeller'])) {
 
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
@@ -27,10 +26,8 @@ if (isset($_GET['denySeller'])) {
     exit();
 }
 
-/* ================= POST REQUESTS ================= */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    /* ================= LOGIN ================= */
     if (isset($_POST['submit'])) {
 
         $email  = trim($_POST['email'] ?? "");
@@ -66,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
-    /* ================= REGISTER ================= */
     if (isset($_POST['register'])) {
 
         registerUser(

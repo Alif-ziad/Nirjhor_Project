@@ -7,10 +7,33 @@ if ($_SESSION['role'] != 'seller') {
 require_once "../../models/productModel.php";
 $products = getSellerProducts($_SESSION['id']);
 ?>
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="dashboard.php" class="logo-link">
+                    <img src="../../assets/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="site-name">SELLER PANEL</span>
+                </a>
+            </div>
+            
+            <div class="header-buttons">
+                
+                <a href="add_product.php" class="btn-header btn-signup">Add Product</a>
+               
+           
+                <a href="../auth/logout.php" class="btn-header btn-logout">Logout</a>
+            </div>
+        </div>
+    </header>
 
+</body>
 <h2>Manage Products</h2>
 
 <table border="1">
+    
 <tr>
     <th>Image</th>
     <th>Name</th>
@@ -19,6 +42,7 @@ $products = getSellerProducts($_SESSION['id']);
     <th>Update</th>
     <th>Delete</th>
 </tr>
+
 
 <?php foreach ($products as $p): ?>
 <tr>
@@ -49,3 +73,4 @@ $products = getSellerProducts($_SESSION['id']);
 <a href="dashboard.php">
     <button type="button">Return to Dashboard</button>
 </a>
+<?php include __DIR__ . '/../layout/footer.php'; ?>
