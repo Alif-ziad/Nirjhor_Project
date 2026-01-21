@@ -2,20 +2,42 @@
 session_start();
 require_once("../models/userModel.php");
 
+/* ================= ADMIN ACTIONS (GET) ================= */
+if (isset($_GET['approveSeller'])) {
+
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header("Location: ../views/auth/login.php");
+        exit();
+    }
+
+    approveSeller($_GET['approveSeller']);
+    header("Location: ../views/admin/manage_users.php");
+    exit();
+}
+
+if (isset($_GET['denySeller'])) {
+
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header("Location: ../views/auth/login.php");
+        exit();
+    }
+
+    denySeller($_GET['denySeller']);
+    header("Location: ../views/admin/manage_users.php");
+    exit();
+}
+
+/* ================= POST REQUESTS ================= */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     /* ================= LOGIN ================= */
     if (isset($_POST['submit'])) {
 
-        $id = trim($_POST['id'] ?? "");
+        $id   = trim($_POST['id'] ?? "");
         $pass = trim($_POST['password'] ?? "");
 
         if (empty($id) || empty($pass)) {
-
-            $idErr = empty($id) ? "User ID required" : "";
-            $passErr = empty($pass) ? "Password required" : "";
-
-            header("Location: ../views/auth/login.php?idErr=$idErr&passErr=$passErr");
+            header("Location: ../views/auth/login.php?genErr=Fields cannot be empty");
             exit();
         }
 
@@ -31,11 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit();
         }
 
-        // Login success
-        $_SESSION['id'] = $user['id'];
+        $_SESSION['id']   = $user['id'];
         $_SESSION['role'] = $user['role'];
 
-        // Role-based redirect
         if ($user['role'] === 'admin') {
             header("Location: ../views/admin/dashboard.php");
         } elseif ($user['role'] === 'seller') {
@@ -49,19 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     /* ================= REGISTER ================= */
     if (isset($_POST['register'])) {
 
-        $name = trim($_POST['name']);
-        $email = trim($_POST['email']);
-        $pass = $_POST['password'];
-        $role = $_POST['role'];
-        $shop_name = $_POST['shop_name'] ?? null;
-        $shop_address = $_POST['shop_address'] ?? null;
-
-        if (empty($name) || empty($email) || empty($pass)) {
-            header("Location: ../views/auth/register.php?err=Empty fields");
-            exit();
-        }
-
-        registerUser($name, $email, $pass, $role, $shop_name, $shop_address);
+        registerUser(
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['password'],
+            $_POST['role'],
+            $_POST['shop_name'] ?? null,
+            $_POST['shop_address'] ?? null
+        );
 
         header("Location: ../views/auth/login.php");
         exit();
