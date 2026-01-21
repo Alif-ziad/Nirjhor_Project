@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2026 at 08:33 PM
+-- Generation Time: Jan 21, 2026 at 09:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -114,7 +114,8 @@ INSERT INTO `products` (`product_id`, `name`, `price`, `description`, `seller_id
 (37, 'floormat', 500.00, 'floormat', 11, '1769023783_557246474_122171551742463724_5225823396527785662_n.jpg', 'approved', 0),
 (38, 'carpet', 1200.00, 'carpet', 11, '1769023808_589184648_122177475236463724_2091501119575102413_n.jpg', 'approved', 0),
 (39, 'jute rugs', 300.00, 'jute rugs', 11, '1769023832_556089127_122170806044463724_3982295227740083175_n.jpg', 'approved', 0),
-(40, 'table runnerset', 2200.00, 'table runnerset', 11, '1769023868_535185108_122166041390463724_7509769211779346208_n.jpg', 'approved', 0);
+(40, 'table runnerset', 2200.00, 'table runnerset', 11, '1769023868_535185108_122166041390463724_7509769211779346208_n.jpg', 'approved', 0),
+(41, 'table runnerset', 1500.00, 'table runnerset', 8, '1769025021_539737965_122167090334463724_5423284250940591578_n.jpg', 'approved', 0);
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users`
