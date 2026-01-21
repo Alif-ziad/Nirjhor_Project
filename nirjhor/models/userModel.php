@@ -65,8 +65,12 @@ function getPendingSellers()
 function approveSeller($id)
 {
     $conn = dbConnect();
-    return mysqli_query($conn, "UPDATE users SET is_approved=1 WHERE id='$id'");
+    return mysqli_query(
+        $conn,
+        "UPDATE users SET is_approved=1, status='approved' WHERE id='$id'"
+    );
 }
+
 
 function denySeller($id)
 {
