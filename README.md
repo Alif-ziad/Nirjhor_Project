@@ -1,54 +1,146 @@
-# Nirjhor — E-commerce Marketplace Management System
+<div align="center">
 
-Nirjhor is an academic PHP/MySQL marketplace project with separate **customer, seller, and administrator** workflows.
+# Nirjhor
+### Multi-role E-commerce Marketplace Management System
 
-## What is implemented
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Status](https://img.shields.io/badge/status-academic%20project-blue?style=flat-square)
 
-- Customer registration/login and session-based access
-- Product browsing and cart/checkout workflows
-- Order handling
-- Seller accounts and seller approval by administrators
-- Seller product-management pages
-- Administrator dashboard and user/product management
-- MySQL database schema in `nirjhor.sql`
+</div>
 
-## Project structure
+Nirjhor is a PHP/MySQL marketplace project built around three roles: **customer, seller, and administrator**. The codebase implements registration/login, seller approval, product submission and approval, product browsing, a session-backed cart, checkout/order creation, seller product management, and administrator reporting.
+
+## What the project demonstrates
+
+- Role-based web application flows using PHP sessions
+- Controller/model/view-style project organization
+- MySQL-backed users, products, orders, and order items
+- File upload handling for product images
+- Multi-stage approval workflows for sellers and products
+- Session cart and checkout logic
+- Administrative reporting and marketplace management
+
+## Role workflows
+
+| Role | Implemented workflow |
+|---|---|
+| **Customer** | Register/login, browse approved products, add items to cart, update quantities, checkout, and view order history |
+| **Seller** | Register as a seller, wait for administrator approval, add products, upload product images, and manage submitted products |
+| **Administrator** | Approve/deny sellers, approve/deny products, review users, and view marketplace/order statistics |
+
+## Application flow
 
 ```text
-nirjhor/
-├── assets/
-├── controllers/
-├── models/
-└── views/
-    ├── admin/
-    ├── auth/
-    ├── customer/
-    └── seller/
+Registration / Login
+        │
+        ├── Customer → Products → Cart → Checkout → Orders
+        │
+        ├── Seller → Approval → Dashboard → Add/Manage Products
+        │
+        └── Admin → Dashboard → Users / Product Approval / Reports
 ```
 
-The application follows a simple controller/model/view organization. Authentication state is stored in PHP sessions and role checks are used to restrict customer, seller, and administrator pages.
+## Repository structure
+
+```text
+.
+├── README.md
+├── nirjhor.sql                     # Database schema + demo seed data
+├── Web_Technology_Project_Proposal.docx
+└── nirjhor/
+    ├── index.php                   # Entry point
+    ├── assets/
+    │   └── images/                 # Logo and product images
+    ├── controllers/
+    │   ├── authController.php
+    │   ├── cartController.php
+    │   ├── orderController.php
+    │   └── productController.php
+    ├── models/
+    │   ├── dbConnect.php
+    │   ├── userModel.php
+    │   ├── productModel.php
+    │   └── orderModel.php
+    └── views/
+        ├── admin/
+        ├── auth/
+        ├── customer/
+        ├── seller/
+        ├── layout/
+        └── css/
+```
+
+## Database model
+
+The SQL dump defines the core marketplace entities:
+
+| Table | Purpose |
+|---|---|
+| `users` | Customer, seller, and administrator accounts plus seller approval state |
+| `products` | Seller-owned products, stock, image path, and approval state |
+| `orders` | Customer orders and total amount |
+| `order_items` | Individual products/quantities saved for each order |
 
 ## Run locally
 
-1. Install a PHP + MySQL environment such as XAMPP.
-2. Clone or download this repository into your web server directory.
-3. Create a MySQL database named `nirjhor`.
-4. Import `nirjhor.sql` into that database.
-5. Check the connection settings in `nirjhor/models/dbConnect.php` for your local MySQL setup.
-6. Start Apache and MySQL.
-7. Open the project through your local web server and enter through the application index/home page.
-
-## Security status
-
-This is a **student/learning project, not a production-ready authentication system**. The current version contains security weaknesses that should be fixed before any real deployment, including plaintext password handling and SQL queries built by direct string interpolation. A production version should use `password_hash()` / `password_verify()`, prepared statements, safer configuration management, CSRF protection, and hardened session settings.
-
-## Tech
+### Requirements
 
 - PHP
-- MySQL
-- HTML/CSS
-- Session-based authentication
+- MySQL / MariaDB
+- A local web server such as Apache (XAMPP is sufficient)
+
+### Setup
+
+1. Clone or download this repository into your web-server directory.
+2. Start **Apache** and **MySQL**.
+3. Create a database named:
+
+```text
+nirjhor
+```
+
+4. Import `nirjhor.sql` into that database.
+5. Check `nirjhor/models/dbConnect.php` and update the local database host/user/password/port if your setup differs.
+6. Open the application through your local server, for example:
+
+```text
+http://localhost/Nirjhor_Project/nirjhor/
+```
+
+The exact URL depends on where you place the repository under your local web root.
+
+## Current implementation notes
+
+This repository preserves the academic implementation rather than presenting it as a production commerce platform.
+
+### Security limitations
+
+The audited version currently includes several patterns that would need to be redesigned before real deployment:
+
+- Passwords are handled as plaintext in the academic authentication flow.
+- Several SQL statements are built through direct string interpolation rather than prepared statements.
+- Local database credentials are hard-coded in `dbConnect.php`.
+- Some state-changing actions use GET requests and do not implement CSRF protection.
+- Session hardening and ownership/authorization checks are incomplete in parts of the application.
+- Checkout/order creation is not wrapped in a database transaction.
+
+A production rewrite should use `password_hash()` / `password_verify()`, prepared statements, environment-based configuration, CSRF tokens, stricter authorization checks, transaction handling, input/output escaping, and hardened session settings.
+
+## Known code-quality items
+
+- The repository contains demo seed data intended for local testing only.
+- Some pages contain duplicated/legacy markup that can be cleaned during a future refactor.
+- The project would benefit from centralized authorization middleware and a routing layer.
+- Automated tests are not currently included.
+
+## Project status
+
+**Academic project / portfolio demonstration.** The strongest parts of the current repository are its multi-role workflow, marketplace data model, approval system, and end-to-end PHP/MySQL application flow. It should not be deployed unchanged on a public production server.
 
 ## Author
 
-MD Alif Ziad Sarkar — CSE, American International University-Bangladesh (AIUB)
+**MD Alif Ziad Sarkar**  
+BSc in Computer Science and Engineering, American International University-Bangladesh (AIUB)
