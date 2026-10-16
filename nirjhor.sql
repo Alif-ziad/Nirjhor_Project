@@ -136,24 +136,25 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Synthetic demonstration records only. Do not use these plaintext
+-- credentials as a pattern for production authentication.
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `status`, `shop_name`, `shop_address`, `is_approved`) VALUES
-(1, 'toji', 'toji2011@gmail.com', 'toji', 'customer', 'approved', NULL, NULL, 1),
-(2, 'nezo', 'nezo1999@gmail.com', 'nezo', 'admin', 'approved', NULL, NULL, 1),
-(3, 'fumi', 'fumi2000@gmail.com', 'fumi', 'seller', 'approved', NULL, NULL, 1),
-(4, 'minho', 'minho@gmail.com', '1234', 'customer', 'pending', '', '', 1),
-(6, 'tamashi', 'tamashi@gmail.com', '1234', 'seller', 'approved', 'fgbgfb', 'fgbgfb', 1),
-(7, 'ogi', 'ogi@gmail.com', '1234', 'customer', 'pending', '', '', 1),
-(8, 'ben', 'ben@gmail.com', '1234', 'seller', 'approved', 'fwefwer', 'sdfvsrfgs', 1),
-(9, 'junayed', 'junyedahad47@gmail.com', '12345678', 'customer', 'pending', '', '', 1),
-(11, 'Ahad', 'go123@gmail.com', '654321', 'seller', 'approved', 'Nirjhor', 'House-3, Road-5/A, Ranavola, PO-Nishatnogor, Turag', 1),
-(12, 'gojo', 'gojo@gmail.com', 'gojo', 'customer', 'pending', '', '', 1),
-(13, 'otto', 'otto@gmail.com', 'otto', 'seller', 'approved', 'otto-totto', 'impel dawn', 1),
-(14, 'felix', 'felix@gmail.com', '1234', 'customer', 'pending', '', '', 1),
-(15, 'bento', 'bento@gmail.com', '1234', 'seller', 'approved', 'bentvent', 'bent street', 1),
-(16, 'admin', 'admin@gmail.com', 'admin', 'admin', 'approved', NULL, NULL, 1);
+(1, 'Customer Demo 1', 'customer1@example.com', 'demo123', 'customer', 'approved', NULL, NULL, 1),
+(2, 'Admin Demo 1', 'admin1@example.com', 'admin123', 'admin', 'approved', NULL, NULL, 1),
+(3, 'Seller Demo 1', 'seller1@example.com', 'demo123', 'seller', 'approved', 'Craft Seller 1', 'Dhaka, Bangladesh', 1),
+(4, 'Customer Demo 2', 'customer2@example.com', 'demo123', 'customer', 'pending', '', '', 1),
+(6, 'Seller Demo 2', 'seller2@example.com', 'demo123', 'seller', 'approved', 'Craft Seller 2', 'Dhaka, Bangladesh', 1),
+(7, 'Customer Demo 3', 'customer3@example.com', 'demo123', 'customer', 'pending', '', '', 1),
+(8, 'Seller Demo 3', 'seller3@example.com', 'demo123', 'seller', 'approved', 'Craft Seller 3', 'Dhaka, Bangladesh', 1),
+(9, 'Customer Demo 4', 'customer4@example.com', 'demo123', 'customer', 'pending', '', '', 1),
+(11, 'Seller Demo 4', 'seller4@example.com', 'demo123', 'seller', 'approved', 'Nirjhor Demo Shop', 'Dhaka, Bangladesh', 1),
+(12, 'Customer Demo 5', 'customer5@example.com', 'demo123', 'customer', 'pending', '', '', 1),
+(13, 'Seller Demo 5', 'seller5@example.com', 'demo123', 'seller', 'approved', 'Craft Seller 5', 'Dhaka, Bangladesh', 1),
+(14, 'Customer Demo 6', 'customer6@example.com', 'demo123', 'customer', 'pending', '', '', 1),
+(15, 'Seller Demo 6', 'seller6@example.com', 'demo123', 'seller', 'approved', 'Craft Seller 6', 'Dhaka, Bangladesh', 1),
+(16, 'Admin Demo 2', 'admin2@example.com', 'admin123', 'admin', 'approved', NULL, NULL, 1);
 
 --
 -- Indexes for dumped tables
