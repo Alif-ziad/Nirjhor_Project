@@ -13,6 +13,18 @@
 
 Nirjhor is a PHP/MySQL marketplace project built around three roles: **customer, seller, and administrator**. The codebase implements registration/login, seller approval, product submission and approval, product browsing, a session-backed cart, checkout/order creation, seller product management, and administrator reporting.
 
+## Project snapshot
+
+| Area | Implementation |
+|---|---|
+| Backend | PHP |
+| Database | MySQL / MariaDB |
+| Frontend | HTML, CSS |
+| Application style | Controller / model / view-style organization |
+| User roles | Customer, seller, administrator |
+| Main workflows | Authentication, approvals, product management, cart, checkout, orders, reports |
+| Status | Academic project / portfolio demonstration |
+
 ## What the project demonstrates
 
 - Role-based web application flows using PHP sessions
@@ -49,11 +61,12 @@ Registration / Login
 .
 ├── README.md
 ├── nirjhor.sql                     # Database schema + demo seed data
-├── Web_Technology_Project_Proposal.docx
+├── WT Project Proposal.docx        # Original academic project proposal
+├── products/                       # Product-image source assets
 └── nirjhor/
     ├── index.php                   # Entry point
     ├── assets/
-    │   └── images/                 # Logo and product images
+    │   └── images/                 # Application/product images
     ├── controllers/
     │   ├── authController.php
     │   ├── cartController.php
@@ -114,7 +127,7 @@ The exact URL depends on where you place the repository under your local web roo
 
 ## Current implementation notes
 
-This repository preserves the academic implementation rather than presenting it as a production commerce platform.
+> **Important:** This repository preserves the original academic implementation. It is suitable for local demonstration and code review, but it should **not** be deployed unchanged as a production commerce platform.
 
 ### Security limitations
 
@@ -132,13 +145,14 @@ A production rewrite should use `password_hash()` / `password_verify()`, prepare
 ## Known code-quality items
 
 - The repository contains demo seed data intended for local testing only.
+- Product images are intentionally included as demonstration assets and contribute substantially to repository size.
 - Some pages contain duplicated/legacy markup that can be cleaned during a future refactor.
 - The project would benefit from centralized authorization middleware and a routing layer.
 - Automated tests are not currently included.
 
 ## Project status
 
-**Academic project / portfolio demonstration.** The strongest parts of the current repository are its multi-role workflow, marketplace data model, approval system, and end-to-end PHP/MySQL application flow. It should not be deployed unchanged on a public production server.
+**Academic project / portfolio demonstration.** The strongest parts of the current repository are its multi-role workflow, marketplace data model, approval system, and end-to-end PHP/MySQL application flow.
 
 ## Author
 
