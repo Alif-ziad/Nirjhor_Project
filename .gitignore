@@ -4,3 +4,10 @@ Thumbs.db
 .idea/
 *.log
 *.tmp
+*.bak
+*.swp
+
+# Local environment/configuration files
+.env
+.env.*
+!.env.example
